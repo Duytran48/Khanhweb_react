@@ -72,9 +72,15 @@ export default function StudentDashboardPage() {
       {/* Exam Library */}
       <section id="de-thi" className={styles.sectionBlock}>
         <div className={styles.headerWithFilters}>
-          <h2 className={styles.sectionHeading} style={{ marginBottom: 0 }}>
-            Thư Viện Đề Thi
-          </h2>
+          <div className={styles.sectionHeaderWithHint}>
+            <h2 className={styles.sectionHeading} style={{ marginBottom: 0 }}>
+              Thư Viện Đề Thi
+            </h2>
+            <div className={styles.swipeHintBadge}>
+              <span>Lướt để xem thêm</span>
+              <span className={styles.swipeHintArrow}>→</span>
+            </div>
+          </div>
 
           <div className={styles.statusFilterGroup}>
             <button
@@ -140,9 +146,15 @@ export default function StudentDashboardPage() {
       {/* Vocabulary Topics */}
       <section id="tu-vung" className={styles.sectionBlock}>
         <div className={styles.headerWithFilters}>
-          <h2 className={styles.sectionHeading} style={{ marginBottom: 0 }}>
-            Chủ Đề Từ Vựng Đã Học
-          </h2>
+          <div className={styles.sectionHeaderWithHint}>
+            <h2 className={styles.sectionHeading} style={{ marginBottom: 0 }}>
+              Chủ Đề Từ Vựng Đã Học
+            </h2>
+            <div className={styles.swipeHintBadge}>
+              <span>Lướt để xem thêm</span>
+              <span className={styles.swipeHintArrow}>→</span>
+            </div>
+          </div>
 
           <div className={styles.statusFilterGroup}>
             <button

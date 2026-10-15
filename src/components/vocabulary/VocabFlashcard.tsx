@@ -22,7 +22,11 @@ interface VocabFlashcardProps {
   onFlip: () => void;
   onPrev: () => void;
   onNext: () => void;
-  onPlayAudio: (e: React.MouseEvent, text: string, accent?: "us" | "uk") => void;
+  onPlayAudio: (
+    e: React.MouseEvent,
+    text: string,
+    accent?: "us" | "uk",
+  ) => void;
   onMarkMastered: (wordId: string, isMastered: boolean) => void;
 }
 
@@ -32,7 +36,10 @@ interface VocabFlashcardProps {
 function renderHighlightedExample(sentence: string, targetWord: string) {
   if (!sentence || !targetWord) return sentence;
 
-  const cleanTarget = targetWord.trim().replace(/\s*\(.*?\)\s*/g, "").trim();
+  const cleanTarget = targetWord
+    .trim()
+    .replace(/\s*\(.*?\)\s*/g, "")
+    .trim();
   if (!cleanTarget) return sentence;
 
   const escapeRegex = (s: string) => s.replace(/[-/\\^$*+?.()|[\]{}]/g, "\\$&");
@@ -103,12 +110,11 @@ export default function VocabFlashcard({
   onMarkMastered,
 }: VocabFlashcardProps) {
   const isLocked = !!status;
-  const [showDetails, setShowDetails] = useState<boolean>(false);
+  const [showDetails, setShowDetails] = useState(false);
 
-  // Reset detail expansion when moving to another word
   useEffect(() => {
     setShowDetails(false);
-  }, [word.id, currentIndex]);
+  }, [word.id]);
 
   return (
     <div className={styles.flashcardBox}>
@@ -167,7 +173,7 @@ export default function VocabFlashcard({
                   title="Nghe phát âm chuẩn Anh - Anh (UK)"
                 >
                   <span className={styles.accentBadgeUK}>UK</span>
-                  <SpeakerIcon size={16} />
+                  <SpeakerIcon size={15} style={{ flexShrink: 0 }} />
                   <span>Anh - Anh</span>
                 </button>
 
@@ -178,7 +184,7 @@ export default function VocabFlashcard({
                   title="Nghe phát âm chuẩn Anh - Mỹ (US)"
                 >
                   <span className={styles.accentBadgeUS}>US</span>
-                  <SpeakerIcon size={16} />
+                  <SpeakerIcon size={15} style={{ flexShrink: 0 }} />
                   <span>Anh - Mỹ</span>
                 </button>
               </div>
@@ -190,18 +196,27 @@ export default function VocabFlashcard({
 
             {/* Back */}
             <div className={styles.flipCardBack}>
-              <span className={styles.partOfSpeechBadge}>
-                {word.partOfSpeech}
-              </span>
-
               <div className={styles.flipCardBackCenter}>
-                <h2 className={styles.cardMeaningViLarge}>{word.meaningVi}</h2>
+                {/* 1. Loại từ & Nghĩa tiếng Việt trong 1 khung */}
+                <div className={styles.cardMeaningViBox}>
+                  <span className={styles.cardBackPosBadge}>
+                    {word.partOfSpeech}
+                  </span>
+                  <h2 className={styles.cardMeaningViText}>{word.meaningVi}</h2>
+                </div>
 
-                {/* English example with target word in red + Audio Speaker */}
+                {/* 2. English & Vietnamese example with target word in red + Audio Speaker */}
                 {word.exampleEn && (
                   <div className={styles.cardBackExampleBox}>
-                    <div className={styles.cardBackExampleEn}>
-                      &ldquo;{renderHighlightedExample(word.exampleEn, word.word)}&rdquo;
+                    <div className={styles.cardBackExampleContent}>
+                      <div className={styles.cardBackExampleEn}>
+                        &ldquo;{renderHighlightedExample(word.exampleEn, word.word)}&rdquo;
+                      </div>
+                      {word.exampleVi && (
+                        <div className={styles.cardBackExampleVi}>
+                          {word.exampleVi}
+                        </div>
+                      )}
                     </div>
                     <button
                       type="button"
@@ -213,41 +228,39 @@ export default function VocabFlashcard({
                       title="Nghe phát âm câu ví dụ tiếng Anh"
                       aria-label="Nghe câu ví dụ"
                     >
-                      <SpeakerIcon size={16} />
+                      <SpeakerIcon size={18} />
                     </button>
                   </div>
                 )}
 
-                {/* Button to toggle synonyms, antonyms and collocation */}
+                {/* 3. Toggle button for details */}
                 <button
                   type="button"
-                  className={`${styles.btnToggleDetails} ${
-                    showDetails ? styles.btnToggleDetailsActive : ""
-                  }`}
+                  className={`${styles.btnShowDetails} ${showDetails ? styles.btnShowDetailsActive : ""}`}
                   onClick={(e) => {
                     e.stopPropagation();
                     setShowDetails((prev) => !prev);
                   }}
+                  title={showDetails ? "Thu gọn chi tiết" : "Xem thêm chi tiết từ vựng"}
                 >
-                  <span>{showDetails ? "Thu gọn chi tiết" : "Xem chi tiết thêm"}</span>
                   <ChevronDownIcon
-                    size={15}
+                    size={16}
                     style={{
                       transform: showDetails ? "rotate(180deg)" : "none",
                       transition: "transform 0.2s ease",
                     }}
                   />
+                  <span>{showDetails ? "Thu gọn" : "Xem thêm"}</span>
                 </button>
 
-                {/* Expanded details */}
+                {/* 4. Synonyms, Antonyms & Collocations (toggled) */}
                 {showDetails && (
-                  <div
-                    className={styles.cardDetailsContainer}
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    {/* Two horizontal boxes: Synonyms (Left) & Antonyms (Right) */}
+                  <div className={styles.cardDetailsContainer}>
+                    {/* 2 ô Từ đồng nghĩa & Từ trái nghĩa nằm ngang ở trên */}
                     <div className={styles.synonymsAntonymsRow}>
-                      <div className={`${styles.detailBox} ${styles.synonymsBox}`}>
+                      <div
+                        className={`${styles.detailBox} ${styles.synonymsBox}`}
+                      >
                         <div className={styles.detailBoxTitle}>Từ đồng nghĩa</div>
                         <div className={styles.tagsList}>
                           {word.synonyms && word.synonyms.length > 0 ? (
@@ -262,7 +275,9 @@ export default function VocabFlashcard({
                         </div>
                       </div>
 
-                      <div className={`${styles.detailBox} ${styles.antonymsBox}`}>
+                      <div
+                        className={`${styles.detailBox} ${styles.antonymsBox}`}
+                      >
                         <div className={styles.detailBoxTitle}>Từ trái nghĩa</div>
                         <div className={styles.tagsList}>
                           {word.antonyms && word.antonyms.length > 0 ? (
@@ -278,18 +293,15 @@ export default function VocabFlashcard({
                       </div>
                     </div>
 
-                    {/* Collocation underneath the two boxes */}
-                    <div className={styles.detailCollocationBox}>
-                      <div className={styles.detailCollocationTitle}>
-                        Cụm từ thường gặp
+                    {/* Ô cụm từ ở dưới hai khung đồng nghĩa và trái nghĩa */}
+                    {word.collocation && (
+                      <div className={styles.cardBackCollocationWrapper}>
+                        <span className={styles.collocationLabelOutside}>Cụm từ:</span>
+                        <div className={styles.collocationBoxInside}>{word.collocation}</div>
                       </div>
-                      <div className={styles.detailCollocationContent}>
-                        {word.collocation || "Đang cập nhật"}
-                      </div>
-                    </div>
+                    )}
                   </div>
                 )}
-
                 <div className={styles.cardClickHint}>
                   <span>Nhấn để xem từ vựng</span>
                 </div>

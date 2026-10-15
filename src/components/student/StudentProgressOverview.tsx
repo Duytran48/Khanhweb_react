@@ -19,7 +19,15 @@ export default function StudentProgressOverview({
 }) {
   return (
     <section className={styles.sectionBlock}>
-      <h2 className={styles.sectionHeading}>Tổng Quan Tiến Độ</h2>
+      <div className={styles.sectionHeaderWithHint}>
+        <h2 className={styles.sectionHeading} style={{ marginBottom: 0 }}>
+          Tổng Quan Tiến Độ
+        </h2>
+        <div className={styles.swipeHintBadge}>
+          <span>Lướt để xem thêm</span>
+          <span className={styles.swipeHintArrow}>→</span>
+        </div>
+      </div>
 
       <div className={styles.overviewGrid}>
         {/* Recent Exam */}

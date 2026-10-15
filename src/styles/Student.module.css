@@ -180,6 +180,17 @@
   margin-bottom: 22px;
 }
 
+.sectionHeaderWithHint {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.swipeHintBadge {
+  display: none;
+}
+
 .overviewGrid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -803,6 +814,45 @@
     margin-bottom: 16px;
   }
 
+  .sectionHeaderWithHint {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+
+  .swipeHintBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: #64748b;
+    user-select: none;
+    white-space: nowrap;
+    animation: swipeHintBlink 2.2s ease-in-out infinite;
+  }
+
+  .swipeHintArrow {
+    display: inline-block;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #2563eb;
+  }
+
+  @keyframes swipeHintBlink {
+    0%, 100% {
+      opacity: 0.35;
+      transform: translateX(0);
+    }
+    50% {
+      opacity: 0.9;
+      transform: translateX(4px);
+    }
+  }
+
   .overviewGrid {
     display: flex;
     overflow-x: auto;
@@ -893,6 +943,10 @@
   .todayGoalCard {
     padding: 24px 16px;
     border-radius: 16px;
+  }
+
+  .sectionHeaderWithHint {
+    gap: 8px;
   }
 
   .overviewGrid {

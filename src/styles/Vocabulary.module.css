@@ -507,15 +507,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 14px;
+  gap: 12px;
   margin-bottom: 20px;
+  width: 100%;
+  max-width: 330px;
 }
 
 .btnAccentPill {
+  flex: 1;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 7px;
-  padding: 8px 16px;
+  padding: 8px 14px;
   border-radius: 999px;
   border: 1.5px solid #e2e8f0;
   background-color: #f8fafc;
@@ -523,6 +527,7 @@
   font-size: 0.88rem;
   font-weight: 700;
   cursor: pointer;
+  white-space: nowrap;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -563,13 +568,43 @@
 }
 
 /* Back face */
-.cardMeaningViLarge {
-  font-size: 2.25rem;
+.cardMeaningViBox {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  background-color: #f8fafc;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 18px;
+  padding: 12px 26px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  max-width: 90%;
+  flex-wrap: wrap;
+}
+
+.cardBackPosBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: #047857;
+  background-color: #ecfdf5;
+  border: 1.5px solid #a7f3d0;
+  padding: 4px 12px;
+  border-radius: 8px;
+  letter-spacing: 0.3px;
+  text-transform: capitalize;
+}
+
+.cardMeaningViText {
+  font-size: 2.1rem;
   font-weight: 800;
   color: #0f172a;
   letter-spacing: -0.5px;
-  margin-bottom: 18px;
   line-height: 1.25;
+  margin: 0;
   text-align: center;
 }
 
@@ -577,39 +612,53 @@
   background-color: #f8fafc;
   border: 1.5px solid #e2e8f0;
   border-radius: 16px;
-  padding: 16px 20px;
-  max-width: 540px;
+  padding: 18px 22px;
+  max-width: 560px;
   width: 100%;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
   text-align: left;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 14px;
+  gap: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+}
+
+.cardBackExampleContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
 .cardBackExampleEn {
-  font-size: 1.05rem;
-  color: #1e293b;
-  line-height: 1.55;
-  font-weight: 500;
-  flex: 1;
+  font-size: 1.22rem; /* to lên một xíu */
+  color: #0f172a;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.cardBackExampleVi {
+  font-size: 0.92rem; /* nhỏ */
+  font-style: italic; /* in nghiêng */
+  color: #64748b;
+  line-height: 1.45;
 }
 
 .btnExampleSpeaker {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
-  min-width: 36px;
+  width: 38px;
+  height: 38px;
+  min-width: 38px;
   border-radius: 50%;
   background-color: #ffffff;
   border: 1.5px solid #cbd5e1;
   color: #059669;
   cursor: pointer;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
   flex-shrink: 0;
 }
 
@@ -618,11 +667,75 @@
   border-color: #10b981;
   color: #047857;
   transform: scale(1.1);
-  box-shadow: 0 4px 10px rgba(16, 185, 129, 0.2);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
 }
 
 .btnExampleSpeaker:active {
   transform: scale(0.92);
+}
+
+/* Collocation on back face */
+.cardBackCollocationWrapper {
+  width: 100%;
+  max-width: 540px;
+  margin-top: 2px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+}
+
+.collocationLabelOutside {
+  font-size: 0.94rem;
+  font-weight: 800;
+  color: #475569;
+  white-space: nowrap;
+  letter-spacing: 0.2px;
+}
+
+.collocationBoxInside {
+  flex: 1;
+  background-color: #f8fafc;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 10px 18px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #0f172a;
+  line-height: 1.45;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+/* Show Details toggle button on flashcard back */
+.btnShowDetails {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 7px 20px;
+  margin: 8px auto 4px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+  border: 1.5px solid #bae6fd;
+  color: #0369a1;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.22s ease;
+  user-select: none;
+  letter-spacing: 0.3px;
+}
+
+.btnShowDetails:hover {
+  background: linear-gradient(135deg, #e0f2fe, #bae6fd);
+  border-color: #7dd3fc;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(3, 105, 161, 0.13);
+}
+
+.btnShowDetails svg {
+  transition: transform 0.25s ease;
 }
 
 .highlightedWord {
@@ -1009,19 +1122,19 @@
   display: inline-block;
 }
 
-/* Word cards grid */
+/* Word cards grid - bự theo chiều ngang */
 .wordsGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 520px), 1fr));
+  gap: 22px;
 }
 
 .wordCardItem {
   background-color: #ffffff;
-  border: 1px solid #e2e8f0;
+  border: 1.5px solid #e2e8f0;
   border-radius: 20px;
-  padding: 22px 24px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+  padding: 24px 28px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1030,7 +1143,7 @@
 
 .wordCardItem:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
   border-color: #cbd5e1;
 }
 
@@ -1135,6 +1248,34 @@
   margin-top: 14px;
   padding-top: 12px;
   border-top: 1px dashed #e2e8f0;
+}
+
+.wordCollocationRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px dashed #e2e8f0;
+}
+
+.wordCollocationLabel {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #64748b;
+  white-space: nowrap;
+}
+
+.wordCollocationText {
+  flex: 1;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 5px 12px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #0f172a;
+  line-height: 1.4;
 }
 
 .wordCardCollocation {
@@ -1718,43 +1859,45 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(15, 23, 42, 0.5);
-    backdrop-filter: blur(4px);
+    background-color: rgba(15, 23, 42, 0.45);
     z-index: 1000;
-    animation: fadeInOverlay 0.2s ease;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.24s ease;
   }
 
-  @keyframes fadeInOverlay {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
+  .sideMenuOverlayVisible {
+    opacity: 1;
+    pointer-events: auto;
   }
 
   .sideMenu {
     position: fixed;
     top: 0;
-    left: -320px;
+    left: 0;
     right: auto;
     bottom: 0;
-    width: 290px;
+    width: 295px;
     max-width: 85vw;
     background-color: #ffffff;
     z-index: 1001;
     border-radius: 0 20px 20px 0;
-    box-shadow: 8px 0 30px rgba(0, 0, 0, 0.15);
+    box-shadow: 4px 0 25px rgba(0, 0, 0, 0.12);
     padding: 20px 16px;
     overflow-y: auto;
-    transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    -webkit-overflow-scrolling: touch;
+    transform: translate3d(-100%, 0, 0);
+    transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.28s;
+    will-change: transform;
+    visibility: hidden;
     display: flex;
     flex-direction: column;
     gap: 10px;
   }
 
   .sideMenu.sideMenuDrawerOpen {
-    left: 0;
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
   }
 
   .sideMenuMobileHeader {
@@ -1831,12 +1974,72 @@
     line-height: 1.2;
   }
 
-  .cardMeaningViLarge {
-    font-size: 1.45rem;
-    max-width: 90%;
-    margin-top: 18px;
+  .accentAudioGroup {
+    width: 100%;
+    max-width: 290px;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  .btnAccentPill {
+    flex: 1;
+    min-width: 0;
+    padding: 7px 10px;
+    gap: 5px;
+    font-size: 0.82rem;
+    white-space: nowrap;
+    justify-content: center;
+  }
+
+  .accentBadgeUK,
+  .accentBadgeUS {
+    font-size: 0.68rem;
+    padding: 2px 5px;
+    border-radius: 5px;
+    flex-shrink: 0;
+  }
+
+  .cardMeaningViBox {
+    padding: 10px 18px;
     margin-bottom: 12px;
+    gap: 10px;
+  }
+
+  .cardMeaningViText {
+    font-size: 1.55rem;
     word-break: break-word;
+  }
+
+  .cardBackPosBadge {
+    font-size: 0.78rem;
+    padding: 3px 8px;
+  }
+
+  .cardBackExampleBox {
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    gap: 12px;
+  }
+
+  .cardBackExampleEn {
+    font-size: 1.08rem;
+  }
+
+  .cardBackExampleVi {
+    font-size: 0.85rem;
+  }
+
+  .cardBackCollocationWrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    margin-bottom: 12px;
+  }
+
+  .collocationBoxInside {
+    width: 100%;
+    font-size: 0.92rem;
+    padding: 8px 14px;
   }
 
   .flashcardActionBar {

@@ -297,6 +297,8 @@ export const seedVocabList: VocabTopic[] = [
         exampleEn: 'We need to determine the exact value of the damaged goods.',
         exampleVi: 'Chúng ta cần xác định giá trị chính xác của lô hàng bị hỏng.',
         collocation: 'determine the outcome / value',
+        synonyms: ['decide', 'resolve', 'ascertain'],
+        antonyms: ['hesitate', 'vacillate', 'overlook'],
         isMastered: false,
       },
       {
@@ -308,6 +310,8 @@ export const seedVocabList: VocabTopic[] = [
         exampleEn: 'They decided to engage a consultant to resolve the dispute.',
         exampleVi: 'Họ quyết định thuê một chuyên gia tư vấn để giải quyết tranh chấp.',
         collocation: 'engage in negotiations, engage a lawyer',
+        synonyms: ['involve', 'participate', 'hire'],
+        antonyms: ['dismiss', 'disengage', 'release'],
         isMastered: false,
       },
       {
@@ -319,6 +323,8 @@ export const seedVocabList: VocabTopic[] = [
         exampleEn: 'The company has established a reputation for reliability.',
         exampleVi: 'Công ty đã tạo dựng được uy tín về độ tin cậy.',
         collocation: 'establish guidelines / partnership',
+        synonyms: ['found', 'set up', 'institute'],
+        antonyms: ['abolish', 'dismantle', 'destroy'],
         isMastered: false,
       },
       {
@@ -330,6 +336,8 @@ export const seedVocabList: VocabTopic[] = [
         exampleEn: 'The contract obligates the vendor to deliver by Friday.',
         exampleVi: 'Hợp đồng bắt buộc bên bán phải giao hàng trước thứ Sáu.',
         collocation: 'be obligated to do something',
+        synonyms: ['require', 'bind', 'compel'],
+        antonyms: ['exempt', 'release', 'free'],
         isMastered: false,
       },
       {
@@ -341,6 +349,8 @@ export const seedVocabList: VocabTopic[] = [
         exampleEn: 'Neither party may disclose confidential information.',
         exampleVi: 'Không bên nào được tiết lộ thông tin bảo mật.',
         collocation: 'third party, contracting party',
+        synonyms: ['entity', 'side', 'participant'],
+        antonyms: ['outsider', 'non-participant'],
         isMastered: false,
       },
       {
@@ -352,6 +362,8 @@ export const seedVocabList: VocabTopic[] = [
         exampleEn: 'Under the provisions of the lease, pets are strictly prohibited.',
         exampleVi: 'Theo các điều khoản hợp đồng thuê, vật nuôi bị nghiêm cấm.',
         collocation: 'make provision for, contractual provision',
+        synonyms: ['clause', 'stipulation', 'condition'],
+        antonyms: ['omission', 'revocation'],
         isMastered: false,
       },
     ],
@@ -376,6 +388,8 @@ export const seedVocabList: VocabTopic[] = [
         exampleEn: 'Company revenue increased by 15% in the fourth quarter.',
         exampleVi: 'Doanh thu công ty tăng 15% trong quý 4.',
         collocation: 'generate revenue, annual revenue',
+        synonyms: ['income', 'earnings', 'turnover'],
+        antonyms: ['expenditure', 'loss', 'deficit'],
         isMastered: false,
       },
       {
@@ -387,6 +401,8 @@ export const seedVocabList: VocabTopic[] = [
         exampleEn: 'The marketing department was allocated a budget of $50,000.',
         exampleVi: 'Phòng tiếp thị được phân bổ ngân sách 50.000 đô la.',
         collocation: 'annual budget, budget deficit',
+        synonyms: ['allowance', 'allocation', 'financial plan'],
+        antonyms: ['debt', 'deficit'],
         isMastered: false,
       },
       {
@@ -398,6 +414,8 @@ export const seedVocabList: VocabTopic[] = [
         exampleEn: 'We must reduce capital expenditure to maintain cash reserves.',
         exampleVi: 'Chúng ta phải giảm chi phí vốn để duy trì dự trữ tiền mặt.',
         collocation: 'cut expenditure, total expenditure',
+        synonyms: ['spending', 'outlay', 'expenses'],
+        antonyms: ['income', 'savings', 'revenue'],
         isMastered: false,
       },
       {
@@ -409,6 +427,8 @@ export const seedVocabList: VocabTopic[] = [
         exampleEn: 'An independent firm was hired to conduct an annual financial audit.',
         exampleVi: 'Một công ty độc lập đã được thuê để tiến hành kiểm toán tài chính hàng năm.',
         collocation: 'conduct an audit, tax audit',
+        synonyms: ['inspection', 'scrutiny', 'examination'],
+        antonyms: ['neglect', 'oversight'],
         isMastered: false,
       },
       {
@@ -420,6 +440,8 @@ export const seedVocabList: VocabTopic[] = [
         exampleEn: 'Shareholders will receive a dividend of 50 cents per share.',
         exampleVi: 'Các cổ đông sẽ nhận được mức cổ tức 50 xu cho mỗi cổ phần.',
         collocation: 'pay a dividend, dividend yield',
+        synonyms: ['payout', 'return', 'share'],
+        antonyms: ['loss', 'forfeit'],
         isMastered: false,
       },
       {
@@ -431,6 +453,8 @@ export const seedVocabList: VocabTopic[] = [
         exampleEn: 'The new fiscal year will begin on January 1st.',
         exampleVi: 'Năm tài khóa mới sẽ bắt đầu vào ngày 1 tháng 1.',
         collocation: 'fiscal year, fiscal policy',
+        synonyms: ['financial', 'monetary', 'economic'],
+        antonyms: ['non-financial'],
         isMastered: false,
       },
     ],

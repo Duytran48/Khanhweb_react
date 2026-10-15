@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "@/styles/Vocabulary.module.css";
 import {
   CardsIcon,
@@ -46,6 +46,17 @@ export default function VocabSideMenu({
 }: VocabSideMenuProps) {
   const [isPartsExpanded, setIsPartsExpanded] = useState<boolean>(false);
 
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (isOpen) {
+      const prevOverflow = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+      return () => {
+        document.body.style.overflow = prevOverflow;
+      };
+    }
+  }, [isOpen]);
+
   const activePart =
     selectedTest?.parts.find(
       (p) =>
@@ -55,14 +66,19 @@ export default function VocabSideMenu({
 
   return (
     <>
-      {isOpen && (
-        <div className={styles.sideMenuOverlay} onClick={onClose} />
-      )}
+      <div
+        className={`${styles.sideMenuOverlay} ${
+          isOpen ? styles.sideMenuOverlayVisible : ""
+        }`}
+        onClick={onClose}
+        aria-hidden={!isOpen}
+      />
 
       <aside
         className={`${styles.sideMenu} ${
           isOpen ? styles.sideMenuDrawerOpen : ""
         }`}
+        aria-hidden={!isOpen}
       >
         <div className={styles.sideMenuMobileHeader}>
           <span className={styles.sideMenuMobileTitle}>Chế độ & Tiến độ</span>
