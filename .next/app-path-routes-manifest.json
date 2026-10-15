@@ -1,9 +1,0 @@
-{
-  "/(admin)/admin/page": "/admin",
-  "/(student)/page": "/",
-  "/(student)/vocabulary/page": "/vocabulary",
-  "/(teacher)/teacher/page": "/teacher",
-  "/_global-error/page": "/_global-error",
-  "/_not-found/page": "/_not-found",
-  "/api/tts/route": "/api/tts"
-}
