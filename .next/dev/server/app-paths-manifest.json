@@ -1,0 +1,4 @@
+{
+  "/(student)/page": "app/(student)/page.js",
+  "/(student)/vocabulary/page": "app/(student)/vocabulary/page.js"
+}

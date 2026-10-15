@@ -1,0 +1,39 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/(student)/layout,_N_T_/(student)/vocabulary/layout,_N_T_/(student)/vocabulary/page,_N_T_/vocabulary"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/!KHN0dWRlbnQp/vocabulary/__PAGE__"
+  ],
+  "prefetchHints": {
+    "hints": 64,
+    "slots": {
+      "children": {
+        "hints": 96,
+        "slots": {
+          "children": {
+            "hints": 96,
+            "slots": {
+              "children": {
+                "hints": 160,
+                "slots": null
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "routeCache": {
+    "key": "/route-cache/APP_PAGE/704c0515eadb1c16f46c6db9523ccaa3a66e6a8dd62c32ece63c433d06e32b9b/$/vocabulary",
+    "owner": {
+      "kind": "APP_PAGE",
+      "sourceRoute": "/(student)/vocabulary/page"
+    },
+    "isFallback": false
+  }
+}

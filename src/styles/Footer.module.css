@@ -1,0 +1,114 @@
+.footer {
+  border-top: 1px solid #e2e8f0;
+  background-color: #ffffff;
+  padding: 40px 24px 24px;
+  margin-top: 60px;
+}
+
+.footerContainer {
+  width: 100%;
+}
+
+.brand {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.brandIcon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background-color: #059669;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.brandTitle {
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: #0f172a;
+}
+
+.brandTitleAccent {
+  color: #059669;
+}
+
+.brandSub {
+  font-size: 0.75rem;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.description {
+  color: #64748b;
+  font-size: 0.9rem;
+  max-width: 560px;
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+.bottomBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 0.85rem;
+  color: #64748b;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 20px;
+}
+
+.copyrightBrand {
+  color: #059669;
+}
+
+.links {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.linkItem {
+  color: #64748b;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.linkItem:hover {
+  color: #059669;
+}
+
+.separator {
+  color: #cbd5e1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer {
+    padding: 32px 16px 20px;
+    margin-top: 40px;
+  }
+
+  .description {
+    font-size: 0.85rem;
+    margin-bottom: 24px;
+  }
+
+  .bottomBar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .links {
+    gap: 14px;
+    font-size: 0.8rem;
+  }
+}

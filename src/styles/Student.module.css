@@ -1,0 +1,1012 @@
+/* Hero & Goal */
+.heroWrapper {
+  background-color: #f2fbf6;
+  border-radius: 20px;
+  border: 1px solid #d1fae5;
+  padding: 32px;
+  margin: 16px 20px 40px 20px;
+  box-shadow: 0 4px 16px rgba(5, 150, 105, 0.04);
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.85fr) minmax(0, 1fr);
+  gap: 32px;
+  align-items: stretch;
+}
+
+.heroLeftContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.dateBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 16px;
+  background-color: #ffffff;
+  border-radius: 999px;
+  border: 1px solid #a7f3d0;
+  font-size: 0.92rem;
+  color: #065f46;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.heroHeading {
+  font-size: 2.75rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 14px;
+  letter-spacing: -0.5px;
+  line-height: 1.22;
+}
+
+.heroHeadingAccent {
+  color: #059669;
+}
+
+.heroDescription {
+  color: #475569;
+  font-size: 1.08rem;
+  line-height: 1.65;
+  max-width: 640px;
+  margin-bottom: 30px;
+}
+
+.statList {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.statCard {
+  background-color: #ffffff;
+  padding: 10px 18px;
+  border-radius: 14px;
+  border: 1px solid #e2e8f0;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  width: fit-content;
+  flex: 0 0 auto;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+}
+
+.statIconFlame {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #fef3c7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.statIconTarget {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #ecfdf5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.statLabel {
+  font-size: 0.82rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.statValue {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: #0f172a;
+}
+
+.todayGoalCard {
+  background-color: #ffffff;
+  border-radius: 24px;
+  padding: 36px 28px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.goalTrophyIcon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: #ecfdf5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  margin-bottom: 16px;
+}
+
+.goalTitle {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+.goalText {
+  font-size: 0.98rem;
+  color: #64748b;
+  line-height: 1.55;
+  max-width: 290px;
+  margin-bottom: 24px;
+}
+
+.btnGoalAction {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 26px;
+  border-radius: 999px;
+  border: 1px solid #10b981;
+  color: #059669;
+  font-weight: 600;
+  font-size: 0.95rem;
+  background-color: #ffffff;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.btnGoalAction:hover {
+  background-color: #ecfdf5;
+}
+
+/* Progress overview */
+.sectionBlock {
+  margin: 0 20px 48px 20px;
+}
+
+.sectionHeading {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 22px;
+}
+
+.overviewGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.overviewCard {
+  background-color: #ffffff;
+  border-radius: 26px;
+  padding: 34px 32px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.035);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 330px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.overviewCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+}
+
+.cardTopRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.badgeBlue {
+  padding: 6px 14px;
+  border-radius: 999px;
+  background-color: #eff6ff;
+  color: #2563eb;
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.badgeGreen {
+  padding: 6px 14px;
+  border-radius: 999px;
+  background-color: #ecfdf5;
+  color: #059669;
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.badgeAmber {
+  padding: 6px 14px;
+  border-radius: 999px;
+  background-color: #fffbeb;
+  color: #d97706;
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.timeMuted {
+  font-size: 0.88rem;
+  color: #94a3b8;
+}
+
+.cardTitle {
+  font-size: 1.28rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 24px;
+  line-height: 1.35;
+}
+
+.scoreDonutRow {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.donutCircle {
+  width: 98px;
+  height: 98px;
+  border-radius: 50%;
+  border: 9px solid #2563eb;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.donutScore {
+  font-weight: 800;
+  font-size: 1.45rem;
+  color: #2563eb;
+  line-height: 1;
+}
+
+.donutMax {
+  font-size: 0.72rem;
+  color: #64748b;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+.scoreDetails {
+  font-size: 1rem;
+}
+
+.scoreRowTarget {
+  color: #64748b;
+  margin-bottom: 8px;
+}
+
+.btnCardBlue {
+  width: 100%;
+  padding: 12px;
+  border-radius: 999px;
+  border: 1px solid #bfdbfe;
+  background-color: #eff6ff;
+  color: #2563eb;
+  font-weight: 600;
+  font-size: 0.96rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btnCardBlue:hover {
+  background-color: #dbeafe;
+}
+
+.vocabRow {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.iconBoxGreen {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background-color: #ecfdf5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.vocabSubTitle {
+  font-size: 0.88rem;
+  color: #64748b;
+}
+
+.progressBox {
+  background-color: #f8fafc;
+  border-radius: 14px;
+  padding: 18px;
+  border: 1px solid #f1f5f9;
+  margin-bottom: 24px;
+}
+
+.progressLabelRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.96rem;
+  margin-bottom: 10px;
+}
+
+.progressBarTrack {
+  height: 10px;
+  background-color: #e2e8f0;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progressBarFillGreen {
+  height: 100%;
+  background-color: #059669;
+}
+
+.btnCardGreenOutline {
+  width: 100%;
+  padding: 12px;
+  border-radius: 999px;
+  border: 1px solid #10b981;
+  background-color: #ffffff;
+  color: #059669;
+  font-weight: 600;
+  font-size: 0.96rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btnCardGreenOutline:hover {
+  background-color: #ecfdf5;
+}
+
+.grammarCenter {
+  text-align: center;
+  padding: 24px 0;
+}
+
+.grammarIconCircle {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background-color: #fef3c7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  margin: 0 auto 18px;
+}
+
+.grammarTitle {
+  font-size: 1.28rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.btnCardAmberOutline {
+  width: 100%;
+  padding: 12px;
+  border-radius: 999px;
+  border: 1px solid #fde68a;
+  background-color: #ffffff;
+  color: #b45309;
+  font-weight: 600;
+  font-size: 0.96rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btnCardAmberOutline:hover {
+  background-color: #fef3c7;
+}
+
+/* Filters & tabs */
+.headerWithFilters {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.statusFilterGroup {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  max-width: 100%;
+  padding-bottom: 2px;
+}
+
+.statusFilterGroup::-webkit-scrollbar {
+  display: none;
+}
+
+.filterPill {
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: none;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.filterPillActive {
+  background-color: #059669;
+  color: #ffffff;
+}
+
+.filterPillInactive {
+  background-color: #f1f5f9;
+  color: #64748b;
+}
+
+.filterPillInactive:hover {
+  color: #0f172a;
+}
+
+.categoryGroup {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  max-width: 100%;
+  padding-bottom: 4px;
+  margin-bottom: 24px;
+}
+
+.categoryGroup::-webkit-scrollbar {
+  display: none;
+}
+
+.categoryLabel {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #475569;
+  margin-right: 4px;
+  white-space: nowrap;
+}
+
+.categoryBtn {
+  padding: 5px 14px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.categoryBtnActive {
+  border: none;
+  background-color: #059669;
+  color: #ffffff;
+}
+
+.categoryBtnInactive {
+  border: 1px solid #e2e8f0;
+  background-color: #ffffff;
+  color: #64748b;
+}
+
+.categoryBtnInactive:hover {
+  border-color: #cbd5e1;
+  color: #0f172a;
+}
+
+/* Cards grid */
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 24px;
+}
+
+.examCard {
+  background-color: #ffffff;
+  border-radius: 24px;
+  padding: 28px;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+  max-width: 440px;
+  width: 100%;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.examCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.04);
+}
+
+.badgesRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.badgeGreenSoft {
+  padding: 3px 8px;
+  border-radius: 6px;
+  background-color: #ecfdf5;
+  color: #059669;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.badgeMutedSoft {
+  padding: 3px 8px;
+  border-radius: 6px;
+  background-color: #f1f5f9;
+  color: #475569;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.scoreStatusBadgeGreen {
+  padding: 3px 10px;
+  border-radius: 999px;
+  background-color: #ecfdf5;
+  color: #059669;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.scoreStatusBadgeAmber {
+  padding: 3px 10px;
+  border-radius: 999px;
+  background-color: #fffbeb;
+  color: #d97706;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.itemHeading {
+  font-size: 1.22rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 10px;
+  line-height: 1.35;
+}
+
+.itemDesc {
+  color: #64748b;
+  font-size: 0.93rem;
+  line-height: 1.55;
+  min-height: 42px;
+  margin-bottom: 18px;
+}
+
+.progressBarThin {
+  height: 7px;
+  background-color: #f1f5f9;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.metaRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.84rem;
+  color: #64748b;
+  border-top: 1px solid #f8fafc;
+  padding-top: 14px;
+  margin-bottom: 22px;
+}
+
+.cardActionRow {
+  display: flex;
+  gap: 8px;
+}
+
+.btnPrimaryGreen {
+  flex: 1;
+  padding: 11px;
+  border-radius: 12px;
+  border: none;
+  background-color: #059669;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.94rem;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.btnPrimaryGreen:hover {
+  opacity: 0.92;
+}
+
+.btnPrimaryAmber {
+  flex: 1;
+  padding: 11px;
+  border-radius: 12px;
+  border: none;
+  background-color: #f59e0b;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.94rem;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.btnPrimaryAmber:hover {
+  opacity: 0.92;
+}
+
+.btnSecondaryOutline {
+  flex: 1;
+  padding: 11px;
+  border-radius: 12px;
+  border: 1px solid #10b981;
+  background-color: #ffffff;
+  color: #059669;
+  font-weight: 600;
+  font-size: 0.94rem;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.btnSecondaryOutline:hover {
+  background-color: #ecfdf5;
+}
+
+.btnSquareIcon {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  background-color: #ffffff;
+  color: #64748b;
+  cursor: pointer;
+}
+
+.btnSquareIconGreen {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: none;
+  background-color: #059669;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+/* Vocab card */
+.vocabCard {
+  background-color: #ffffff;
+  border-radius: 24px;
+  padding: 28px;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+  max-width: 440px;
+  width: 100%;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.vocabCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.04);
+}
+
+.vocabTopRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 14px;
+}
+
+.vocabIconBox {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+
+.targetLevelLabel {
+  font-size: 0.72rem;
+  color: #94a3b8;
+}
+
+.btnFullWidth {
+  width: 100%;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .heroGrid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .heroWrapper {
+    padding: 24px;
+    margin: 14px 16px 36px 16px;
+  }
+
+  .sectionBlock {
+    margin: 0 16px 40px 16px;
+  }
+
+  .heroHeading {
+    font-size: 2.1rem;
+  }
+
+  .todayGoalCard {
+    padding: 28px 20px;
+  }
+
+  .cardsGrid {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .heroWrapper {
+    padding: 20px 16px;
+    border-radius: 18px;
+    margin: 12px 12px 32px 12px;
+  }
+
+  .sectionBlock {
+    margin: 0 12px 36px 12px;
+  }
+
+  .heroHeading {
+    font-size: 1.75rem;
+  }
+
+  .heroDescription {
+    font-size: 0.92rem;
+    margin-bottom: 22px;
+  }
+
+  .statList {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .statCard {
+    width: fit-content;
+    padding: 9px 14px;
+  }
+
+  .sectionHeading {
+    font-size: 1.35rem;
+    margin-bottom: 16px;
+  }
+
+  .overviewGrid {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 16px;
+    padding-bottom: 12px;
+    margin: 0 -12px;
+    padding-left: 12px;
+    padding-right: 12px;
+    scrollbar-width: none;
+  }
+
+  .overviewGrid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .overviewCard {
+    flex: 0 0 85%;
+    max-width: 340px;
+    min-width: 280px;
+    scroll-snap-align: center;
+  }
+
+  .cardsGrid {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 16px;
+    padding-bottom: 14px;
+    margin: 0 -12px;
+    padding-left: 12px;
+    padding-right: 12px;
+    scrollbar-width: none;
+  }
+
+  .cardsGrid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .examCard,
+  .vocabCard {
+    flex: 0 0 85%;
+    max-width: 340px;
+    min-width: 280px;
+    scroll-snap-align: center;
+  }
+
+  .headerWithFilters {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .statusFilterGroup {
+    width: 100%;
+  }
+
+  .categoryGroup {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroWrapper {
+    padding: 18px 14px;
+    border-radius: 16px;
+    margin: 10px 8px 28px 8px;
+  }
+
+  .sectionBlock {
+    margin: 0 8px 32px 8px;
+  }
+
+  .heroHeading {
+    font-size: 1.5rem;
+  }
+
+  .dateBadge {
+    font-size: 0.78rem;
+    padding: 5px 10px;
+    margin-bottom: 14px;
+  }
+
+  .todayGoalCard {
+    padding: 24px 16px;
+    border-radius: 16px;
+  }
+
+  .overviewGrid {
+    margin: 0 -8px;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .overviewCard {
+    flex: 0 0 88%;
+    min-width: 270px;
+    padding: 20px 18px;
+    border-radius: 20px;
+    min-height: 280px;
+  }
+
+  .cardTopRow {
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+
+  .badgeBlue,
+  .badgeGreen,
+  .badgeAmber {
+    padding: 4px 10px;
+    font-size: 0.76rem;
+    white-space: nowrap;
+  }
+
+  .timeMuted {
+    font-size: 0.75rem;
+    white-space: nowrap;
+  }
+
+  .cardTitle {
+    font-size: 1.1rem;
+    margin-bottom: 16px;
+  }
+
+  .scoreDonutRow {
+    gap: 16px;
+    margin-bottom: 18px;
+  }
+
+  .scoreDetails {
+    font-size: 0.88rem;
+  }
+
+  .vocabRow {
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .iconBoxGreen {
+    width: 40px;
+    height: 40px;
+  }
+
+  .progressBox {
+    padding: 12px 14px;
+    margin-bottom: 16px;
+  }
+
+  .progressLabelRow {
+    font-size: 0.84rem;
+    margin-bottom: 6px;
+  }
+
+  .grammarCenter {
+    padding: 12px 0;
+  }
+
+  .grammarIconCircle {
+    width: 44px;
+    height: 44px;
+    margin-bottom: 10px;
+  }
+
+  .grammarTitle {
+    font-size: 1.05rem;
+  }
+
+  .btnCardBlue,
+  .btnCardGreenOutline,
+  .btnCardAmberOutline {
+    padding: 10px;
+    font-size: 0.88rem;
+  }
+
+  .cardsGrid {
+    margin: 0 -8px;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .examCard,
+  .vocabCard {
+    flex: 0 0 88%;
+    min-width: 270px;
+    padding: 18px 16px;
+    border-radius: 16px;
+  }
+
+  .donutCircle {
+    width: 76px;
+    height: 76px;
+    border-width: 6px;
+  }
+
+  .donutScore {
+    font-size: 1.15rem;
+  }
+
+  .itemHeading {
+    font-size: 1rem;
+  }
+}
