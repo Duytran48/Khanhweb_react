@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import styles from "@/styles/Vocabulary.module.css";
 import { FilterIcon, CheckIcon, XIcon, SpeakerIcon } from "@/components/Icons";
@@ -26,6 +28,18 @@ export default function VocabWordList({
   notStudiedCount,
   onPlayAudio,
 }: VocabWordListProps) {
+  // Categorize words into groups strictly ordered:
+  // 1. Chưa học (not studied)
+  // 2. Chưa thuộc (unmastered)
+  // 3. Đã thuộc (mastered)
+  const notStudiedWords = words.filter((w) => !globalProgress[w.id]);
+  const unmasteredWords = words.filter(
+    (w) => globalProgress[w.id] === "unmastered",
+  );
+  const masteredWords = words.filter(
+    (w) => globalProgress[w.id] === "mastered",
+  );
+
   const filteredWords = words.filter((w) => {
     const status = globalProgress[w.id];
     if (listFilter === "mastered") return status === "mastered";
@@ -33,6 +47,93 @@ export default function VocabWordList({
     if (listFilter === "not_studied") return !status;
     return true;
   });
+
+  const renderWordCard = (word: VocabWord) => {
+    const wordStatus = globalProgress[word.id];
+    const isMastered = wordStatus === "mastered";
+    const isUnmastered = wordStatus === "unmastered";
+
+    return (
+      <div key={word.id} className={styles.wordCardItem}>
+        <div>
+          <div className={styles.wordTopRow}>
+            <div className={styles.wordTitleText}>{word.word}</div>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "8px",
+              }}
+            >
+              <span
+                className={`${styles.wordStatusBadge} ${
+                  isMastered
+                    ? styles.badgeMasteredSmall
+                    : isUnmastered
+                      ? styles.badgeUnmastered
+                      : styles.badgeNotStudied
+                }`}
+              >
+                {isMastered
+                  ? "Đã thuộc"
+                  : isUnmastered
+                    ? "Chưa thuộc"
+                    : "Chưa học"}
+              </span>
+              <button
+                className={styles.wordSpeakerSmall}
+                onClick={(e) => onPlayAudio(e, word.word)}
+                title="Nghe phát âm từ"
+              >
+                <SpeakerIcon size={16} />
+              </button>
+            </div>
+          </div>
+
+          <div className={styles.wordPhoneticText}>{word.phonetic}</div>
+
+          <div className={styles.wordMeaningBoxItem}>
+            <span className={styles.wordPosTag}>{word.partOfSpeech}</span>
+            <span className={styles.wordMeaningViItem}>{word.meaningVi}</span>
+          </div>
+
+          {word.exampleEn && (
+            <p className={styles.wordExampleEnText}>
+              <span>&bull;</span>
+              <span>{word.exampleEn}</span>
+              <button
+                type="button"
+                className={styles.wordSpeakerSmall}
+                onClick={(e) => onPlayAudio(e, word.exampleEn)}
+                title="Nghe ví dụ tiếng Anh"
+                style={{
+                  width: "22px",
+                  height: "22px",
+                  marginLeft: "6px",
+                  verticalAlign: "middle",
+                  display: "inline-flex",
+                }}
+              >
+                <SpeakerIcon size={12} />
+              </button>
+            </p>
+          )}
+          {word.exampleVi && (
+            <p className={styles.wordExampleViText}>{word.exampleVi}</p>
+          )}
+        </div>
+
+        {word.collocation && (
+          <div className={styles.wordCollocationRow}>
+            <span className={styles.wordCollocationLabel}>Cụm từ:</span>
+            <span className={styles.wordCollocationText}>
+              {word.collocation}
+            </span>
+          </div>
+        )}
+      </div>
+    );
+  };
 
   return (
     <div className={styles.wordsListContainer}>
@@ -88,77 +189,79 @@ export default function VocabWordList({
         </div>
       </div>
 
-      <div className={styles.wordsGrid}>
-        {filteredWords.map((word) => {
-          const wordStatus = globalProgress[word.id];
-          const isMastered = wordStatus === "mastered";
-          const isUnmastered = wordStatus === "unmastered";
-
-          return (
-            <div key={word.id} className={styles.wordCardItem}>
-              <div>
-                <div className={styles.wordTopRow}>
-                  <div className={styles.wordTitleText}>{word.word}</div>
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "8px",
-                    }}
-                  >
-                    <span
-                      className={`${styles.wordStatusBadge} ${
-                        isMastered
-                          ? styles.badgeMasteredSmall
-                          : isUnmastered
-                            ? styles.badgeUnmastered
-                            : styles.badgeNotStudied
-                      }`}
-                    >
-                      {isMastered
-                        ? "Đã thuộc"
-                        : isUnmastered
-                          ? "Chưa thuộc"
-                          : "Chưa học"}
-                    </span>
-                    <button
-                      className={styles.wordSpeakerSmall}
-                      onClick={(e) => onPlayAudio(e, word.word)}
-                      title="Nghe phát âm"
-                    >
-                      <SpeakerIcon size={16} />
-                    </button>
-                  </div>
-                </div>
-
-                <div className={styles.wordPhoneticText}>{word.phonetic}</div>
-
-                <div className={styles.wordMeaningBoxItem}>
-                  <span className={styles.wordPosTag}>{word.partOfSpeech}</span>
-                  <span className={styles.wordMeaningViItem}>
-                    {word.meaningVi}
+      {listFilter === "all" ? (
+        <div className={styles.wordGroupsContainer}>
+          {notStudiedWords.length > 0 && (
+            <div className={styles.wordStatusSection}>
+              <div
+                className={`${styles.wordSectionHeader} ${styles.sectionNotStudied}`}
+              >
+                <div className={styles.wordSectionTitle}>
+                  <span className={styles.statusDotGray} />
+                  <span>Từ chưa học</span>
+                  <span className={styles.sectionCountPill}>
+                    {notStudiedWords.length}
                   </span>
                 </div>
-
-                <p className={styles.wordExampleEnText}>
-                  <span>&bull;</span>
-                  <span>{word.exampleEn}</span>
-                </p>
-                <p className={styles.wordExampleViText}>{word.exampleVi}</p>
+                <span className={styles.sectionSubtext}>
+                  Chưa bắt đầu học
+                </span>
               </div>
+              <div className={styles.wordsGrid}>
+                {notStudiedWords.map(renderWordCard)}
+              </div>
+            </div>
+          )}
 
-              {word.collocation && (
-                <div className={styles.wordCollocationRow}>
-                  <span className={styles.wordCollocationLabel}>Cụm từ:</span>
-                  <span className={styles.wordCollocationText}>
-                    {word.collocation}
+          {unmasteredWords.length > 0 && (
+            <div className={styles.wordStatusSection}>
+              <div
+                className={`${styles.wordSectionHeader} ${styles.sectionUnmastered}`}
+              >
+                <div className={styles.wordSectionTitle}>
+                  <XIcon size={16} />
+                  <span>Từ chưa thuộc</span>
+                  <span className={styles.sectionCountPill}>
+                    {unmasteredWords.length}
                   </span>
                 </div>
-              )}
+                <span className={styles.sectionSubtext}>
+                  Cần ôn luyện thêm
+                </span>
+              </div>
+              <div className={styles.wordsGrid}>
+                {unmasteredWords.map(renderWordCard)}
+              </div>
             </div>
-          );
-        })}
-      </div>
+          )}
+
+          {masteredWords.length > 0 && (
+            <div className={styles.wordStatusSection}>
+              <div
+                className={`${styles.wordSectionHeader} ${styles.sectionMastered}`}
+              >
+                <div className={styles.wordSectionTitle}>
+                  <CheckIcon size={16} />
+                  <span>Từ đã thuộc</span>
+                  <span className={styles.sectionCountPill}>
+                    {masteredWords.length}
+                  </span>
+                </div>
+                <span className={styles.sectionSubtext}>
+                  Đã ghi nhớ thành thạo
+                </span>
+              </div>
+              <div className={styles.wordsGrid}>
+                {masteredWords.map(renderWordCard)}
+              </div>
+            </div>
+          )}
+        </div>
+      ) : (
+        <div className={styles.wordsGrid}>
+          {filteredWords.map(renderWordCard)}
+        </div>
+      )}
     </div>
   );
 }

@@ -197,12 +197,24 @@ export default function VocabFlashcard({
               <div className={styles.flipCardBackCenter}>
                 <h2 className={styles.cardMeaningViLarge}>{word.meaningVi}</h2>
 
-                {/* English example with target word in red */}
+                {/* English example with target word in red + Audio Speaker */}
                 {word.exampleEn && (
                   <div className={styles.cardBackExampleBox}>
                     <div className={styles.cardBackExampleEn}>
                       &ldquo;{renderHighlightedExample(word.exampleEn, word.word)}&rdquo;
                     </div>
+                    <button
+                      type="button"
+                      className={styles.btnExampleSpeaker}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        onPlayAudio(e, word.exampleEn, "us");
+                      }}
+                      title="Nghe phát âm câu ví dụ tiếng Anh"
+                      aria-label="Nghe câu ví dụ"
+                    >
+                      <SpeakerIcon size={16} />
+                    </button>
                   </div>
                 )}
 
